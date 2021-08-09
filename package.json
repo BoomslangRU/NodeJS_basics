@@ -1,0 +1,24 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "this is nodeJS basic course",
+  "main": "idex.js",
+  "scripts": {
+    "start": "nodemon idex",
+    "prod": "node index"
+  },
+  "keywords": [
+    "node",
+    "nodeJS",
+    "JS",
+    "javascript"
+  ],
+  "author": "Boomslang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
