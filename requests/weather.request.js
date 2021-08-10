@@ -20,7 +20,6 @@ module.exports = async (city = '') => {
 
     try {
         const data = await rp(options)
-        // console.log(data);
 
         return {
             weather: `${data.name}: ${data.main.temp.toFixed(0)}`,
@@ -32,5 +31,4 @@ module.exports = async (city = '') => {
             error: error.error.message
         }
     }
-
 }
