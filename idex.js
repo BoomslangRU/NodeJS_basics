@@ -1,5 +1,6 @@
 const express = require('express')
 const { urlencoded } = require('body-parser')
+const weatherRequest = require('./requests/weather.request')
 
 const app = express()
 
@@ -8,14 +9,16 @@ app.use(express.static('public'))
 app.use(urlencoded({ extended: true }))
 
 app.get('/', (request, response) => {
-    response.render('index')
+    response.render('index', { weather: null, error: null })
 })
 
-app.post('/', (request, response) => {
+app.post('/', async (request, response) => {
     const { city } = request.body
 
-    console.log(city);
-    response.render('index')
+    const { weather, error } = await weatherRequest(city)
+    console.log('Weather:', weather)
+    console.log('Error:', error)
+    response.render('index', { weather, error })
 })
 
 app.listen(3000, () => {
